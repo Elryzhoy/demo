@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.StudentsMapper">
+
+
+    <select id="selectStudentById" resultType="com.example.demo.entry.Students">
+        select * from t_students where id = #{fdId}
+    </select>
+
+    <insert id="insertStudent" parameterType="com.example.demo.entry.Students">
+        insert into t_students( fd_name, fd_age, fd_class) values( #{fdName}, #{fdAge}, #{fdClass})
+    </insert>
+
+    <delete id="deleteStudentById" parameterType="Integer">
+        delete from t_students where fd_id = #{fdId}
+    </delete>
+
+    <update id="updateStudent" parameterType="com.example.demo.entry.Students">
+        update t_students set fd_name = #{fdName}, fd_age = #{fdAge},fd_teacher = #{fdTeacherId}, fd_class = #{fdClass} where fd_id = #{fdId}
+    </update>
+
+</mapper>

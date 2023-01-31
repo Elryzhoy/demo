@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon"href="/images/favicon.ico" type="image/x-icon">
+    <title>欢迎页面</title>
+</head>
+<body>
+<h1>欢迎使用SpringBoot</span></h1>
+
+<h3>thymeleaf标签的使用</h3>
+<ul>
+    <li>直接取变量th:text="${name}"</li>
+    <p th:text="${name}">
+
+    <li>th:each使用</li>
+    <p th:each="l : ${list}" th:text="${l}"></p>
+
+    <li>th:if使用</li>
+    <p th:if="${sex}==1">男</p>
+
+    <li>三目运算显示性别</li>
+    <p th:text="${sex}==1 ? '男':'女'">未知</p>
+
+    <li>th:utext和th:text区别text不会转义特殊字符，utext会转义特殊字符</li>
+    <p>不会转义：<span th:text="${code}"></span></p>
+    <p>转义：<span th:utext="${code}"></span></p>
+
+    <li>格式化时间</li>
+    <p th:text="${date}"></p>
+    <p th:text="${#dates.format(date,'yyyy年 MM月 d日 HH:mm:ss')}"></p>
+
+</ul>
+
+</body>
+</html>
